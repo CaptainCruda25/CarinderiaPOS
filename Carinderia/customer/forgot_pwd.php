@@ -18,7 +18,7 @@ if(isset($_POST['reset_pwd'])){
     $rows = mysqli_num_rows($query);
     
     if($rows > 0){
-      $sql = "UPDATE rpos_customers SET customer_password = '$newpass'";
+      $sql = "UPDATE rpos_customers where customer_email = '$email' SET customer_password = '$newpass'";
       $query = mysqli_query($mysqli, $sql);
       $success = "Change Success" && header("refresh:1; url=index.php");
     }
